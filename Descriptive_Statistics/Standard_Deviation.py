@@ -10,11 +10,12 @@ class Standard_Deviation:
     @staticmethod
     def deviation_Calculator(data):
         newdata = []
+        data.sort()
         n = len(data)
         mean = Mean.Mean_Calculator(data)
         for i in data:
             newdata.append(Exponentiation.power((i - mean),2))
 
         sum = Addition.sumList(newdata)
-        return nthRoot.rooting(Division.divide(sum,n),2)
+        return nthRoot.rooting(2,Division.divide(sum,n))
 

@@ -13,6 +13,6 @@ class Mode:
         if len(mode) == n:
             return -1
         else:
-            get_mode = int("Mode is / are: " + ', '.join(map(str, mode)))
+            get_mode = int(''.join(map(str, mode)))
 
-        print(get_mode)
+        return get_mode

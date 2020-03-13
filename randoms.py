@@ -2,20 +2,20 @@ import random
 
 class Randoms:
 
-    def rand_range(self,a,b,seed):
-        random.seed(seed)
-        if (a-b == 1 ) or (a-b == -1):
-            return random.randint(a,b)/100
-        return random.randint(a,b)
+    def rand_range(a, b, seed = None):
+        if seed is None:
+            if (a - b == 1) or (a - b == -1):
+                return random.randint(a, b) / 100
+            return random.randrange(a, b)
+        else:
+            random.seed(seed)
+            if (a - b == 1) or (a - b == -1):
+                return random.randint(a, b) / 100
+            return random.randrange(a, b)
 
-    def rand_range(self,a,b):
-        if (a - b == 1) or (a - b == -1):
-            return random.randint(a, b) / 100
-        return random.randint(a, b)
-
-    def rand_list(self,a,b,N,seed):
+    def rand_list(a,b,N,seed):
         res = []
-        random.seed(5)
+        random.seed(seed)
         for j in range(N):
             if (a - b == 1) or (a - b == -1):
                 res.append(random.randint(a, b)/100)
@@ -23,16 +23,17 @@ class Randoms:
                 res.append(random.randint(a, b))
         return res
 
-    def rand_selector(self,list):
-        return list[random.randint(0,len(list)-1)]
+    def rand_selector(list,seed = None):
+        if seed is None:
+            return list[random.randint(0, len(list) - 1)]
+        else:
+            random.seed(seed)
+            return list[random.randint(0, len(list) - 1)]
 
-    def rand_selector(self,list,seed):
-        random.seed(seed)
-        return list[random.randint(0, len(list) - 1)]
+    def rand_N_selector(list,N,seed = None):
+        if seed is None:
+            return random.sample(list, N)
+        else:
+            random.seed(seed)
+            return random.sample(list,N)
 
-    def rand_N_selector(self,list,N):
-         return random.sample(list, N)
-
-    def rand_N_selector(self,list,N,seed):
-        random.seed(seed)
-        return random.sample(list,N)

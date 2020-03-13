@@ -13,15 +13,26 @@ class Randoms:
                 return random.randint(a, b) / 100
             return random.randrange(a, b)
 
-    def rand_list(a,b,N,seed):
-        res = []
-        random.seed(seed)
-        for j in range(N):
-            if (a - b == 1) or (a - b == -1):
-                res.append(random.randint(a, b)/100)
-            else:
-                res.append(random.randint(a, b))
-        return res
+    def rand_list(a,b,N,seed = None):
+        if seed is None:
+            res = []
+
+            for j in range(N):
+                if (a - b == 1) or (a - b == -1):
+                    res.append(random.randint(a, b) / 100)
+                else:
+                    res.append(random.randint(a, b))
+            return res
+        else:
+            res = []
+
+            random.seed(seed)
+            for j in range(N):
+                if (a - b == 1) or (a - b == -1):
+                    res.append(random.randint(a, b)/100)
+                else:
+                    res.append(random.randint(a, b))
+            return res
 
     def rand_selector(list,seed = None):
         if seed is None:

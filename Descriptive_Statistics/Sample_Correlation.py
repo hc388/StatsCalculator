@@ -1,5 +1,6 @@
 from Descriptive_Statistics.Mean import Mean
 from Descriptive_Statistics.Standard_Deviation import Standard_Deviation
+from MathOperations.Addition import Addition
 
 try:
     from itertools import imap
@@ -13,8 +14,8 @@ class Sample_Correlation:
     def correlation(x, y):
         if(len(x) == len(y)):
             n = len(x)
-            sum_x = float(sum(x))
-            sum_y = float(sum(y))
+            sum_x = float(Addition.sumList(x))
+            sum_y = float(Addition.sumList(y))
             sum_x_sq = sum(map(lambda x: pow(x, 2), x))
             sum_y_sq = sum(map(lambda x: pow(x, 2), y))
             psum = sum(imap(lambda x, y: x * y, x, y))

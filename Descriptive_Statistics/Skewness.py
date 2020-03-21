@@ -4,6 +4,7 @@ from Descriptive_Statistics.Standard_Deviation import Standard_Deviation
 
 class Skewness:
 
+    @staticmethod
     def skew(list):
         mean = Mean.Mean_Calculator(list)
         median = Median.Median_Calculator(list)

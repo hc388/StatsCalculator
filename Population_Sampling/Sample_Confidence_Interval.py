@@ -1,17 +1,20 @@
 from Descriptive_Statistics.Mean import Mean
+from Descriptive_Statistics.Standard_Deviation import Standard_Deviation
+from Descriptive_Statistics.Zscore import Zscore
+from MathOperations.nthRoot import nthRoot
 import numpy as np
 import scipy.stats
 
 
-class Confidence_Interval:
+class Sample_Confidence_Interval:
 
     @staticmethod
-    def interval(list, cvalue):
-        a = 1.0 * np.array(list)
-        n = len(a)
-        m = Mean.Mean_Calculator(a)
+    def interval(list, cvalue=0.95):
 
-        se = scipy.stats.sem(a)
-        h = se * scipy.stats.t.ppf((1 + cvalue) / 2., n - 1)
-        return m, m - h, m + h
+        mean = Mean.Mean_Calculator(list)
+        stdev = Standard_Deviation.deviation_Calculator(list)
+        n = len(list)
+        zvalue = Zscore.ZscoreCalculatorUsingAlpha(cvalue)
+        temp = round(zvalue*(stdev/nthRoot.rooting(2,n)),2)
+        return round((mean-temp),2), round(mean), round((mean+temp),2)
 

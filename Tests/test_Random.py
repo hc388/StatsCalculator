@@ -39,12 +39,5 @@ class MyTestCase(unittest.TestCase):
         self.assertEquals((Randoms.rand_N_selector(list, 3, 7)), Randoms.rand_N_selector(list, 3, 7))
 
 
-
-
-
-
-
-
-
 if __name__ == '__main__':
     unittest.main()

@@ -23,19 +23,19 @@ class MyTestCase(unittest.TestCase):
 
 
     def test_randSelectorseed(self):
-        list = [5,13,55,23,67,43,67]
+        list = Randoms.rand_list(0,100,30,99)
         self.assertEquals((Randoms.rand_selector(list,4)), Randoms.rand_selector(list, 4))
 
     def test_randSelector(self):
-        list = [5,13,55,23,67,43,67]
+        list = Randoms.rand_list(0,100,30,99)
         self.assertTrue(Randoms.rand_selector(list) in list)
 
     def test_rand_N_Selector(self):
-        list = [5,13,55,23,67,43,67]
+        list = Randoms.rand_list(0,100,30,99)
         self.assertTrue(all(elem in list  for elem in Randoms.rand_N_selector(list,3)))
 
     def test_rand_N_Selectorseed(self):
-        list = [5, 13, 55, 23, 67, 43, 67]
+        list = Randoms.rand_list(0,100,30,99)
         self.assertEquals((Randoms.rand_N_selector(list, 3, 7)), Randoms.rand_N_selector(list, 3, 7))
 
 
